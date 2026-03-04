@@ -1,0 +1,129 @@
+.section {
+  padding: 120px 64px;
+  background: var(--noir);
+  position: relative;
+  overflow: hidden;
+}
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(192,39,45,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+.sectionLabel { justify-content: center; }
+
+.desc {
+  font-size: 15px;
+  color: var(--gris-clair);
+  line-height: 1.8;
+  font-weight: 300;
+  margin: 22px 0 56px;
+}
+
+.ctas {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  text-align: left;
+}
+
+.card {
+  background: var(--noir-3);
+  padding: 36px 32px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.card:hover { border-color: var(--bordure-r); }
+
+.cardIcon {
+  width: 32px;
+  height: 32px;
+  color: var(--rouge);
+  margin-bottom: 18px;
+}
+.cardLabel {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gris);
+  display: block;
+  margin-bottom: 8px;
+}
+.cardVal {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 400;
+  word-break: break-word;
+}
+
+/* Footer */
+.footer {
+  background: var(--noir-2);
+  padding: 42px 64px;
+  border-top: 1px solid rgba(192,39,45,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footerLogo {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--blanc);
+}
+.footerCopy {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--gris);
+}
+.footerBadges { display: flex; gap: 10px; }
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(192,39,45,0.25);
+  background: var(--noir-3);
+}
+.badgeIcon { width: 14px; height: 14px; color: var(--rouge); }
+.badgeText {
+  font-family: var(--font-heading);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .section { padding: 80px 24px; }
+  .grid { grid-template-columns: 1fr; }
+  .footer { padding: 32px 24px; justify-content: center; text-align: center; }
+  .footerBadges { justify-content: center; }
+}
+@media (max-width: 600px) {
+  .ctas { flex-direction: column; align-items: center; }
+}

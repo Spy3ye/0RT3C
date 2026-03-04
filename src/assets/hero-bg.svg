@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(192,39,45,0.08)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="70%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#c0272d" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0c0c0c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="overlay" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="700" fill="#0c0c0c"/>
+  <rect width="1200" height="700" fill="url(#grid)"/>
+  <rect width="1200" height="700" fill="url(#glow)"/>
+  <polygon points="550,0 1200,0 1200,700 650,700" fill="rgba(192,39,45,0.04)" stroke="rgba(192,39,45,0.12)" stroke-width="1"/>
+</svg>

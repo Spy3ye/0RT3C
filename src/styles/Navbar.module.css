@@ -1,0 +1,200 @@
+.urgence {
+  background: var(--rouge);
+  padding: 11px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+  z-index: 300;
+}
+.urgence::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent, transparent 60px,
+    rgba(255,255,255,0.04) 60px,
+    rgba(255,255,255,0.04) 61px
+  );
+}
+.urgenceDot {
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.urgenceText {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.urgenceNum {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 26px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  padding: 16px 64px;
+  background: rgba(12,12,12,0.96);
+  border-bottom-color: var(--bordure-r);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.logoImg {
+  width: 38px;
+  height: 44px;
+  transition: transform 0.3s;
+}
+.logo:hover .logoImg { transform: scale(1.06); }
+.logoWords { display: flex; flex-direction: column; line-height: 1; }
+.logoMain {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  color: var(--blanc);
+  text-transform: uppercase;
+}
+.logoSub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 10px;
+  color: var(--rouge);
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  gap: 44px;
+  list-style: none;
+}
+.links a {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+  transition: color 0.3s;
+  position: relative;
+}
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--rouge);
+  transition: width 0.3s;
+}
+.links a:hover { color: var(--blanc); }
+.links a:hover::after { width: 100%; }
+
+/* CTA */
+.navCta {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  background: var(--rouge);
+  color: #fff;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  transition: background 0.3s, transform 0.3s;
+}
+.navCta:hover {
+  background: var(--rouge-vif);
+  transform: translateY(-1px);
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--blanc);
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE MENU */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(12,12,12,0.98);
+  z-index: 199;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding-top: 80px;
+}
+.mobileMenu.open { display: flex; }
+.mobileMenu a {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  transition: color 0.3s;
+}
+.mobileMenu a:hover { color: var(--rouge); }
+.mobileMenu .navCta { font-size: 14px; padding: 16px 48px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav { padding: 18px 24px; }
+  .nav.scrolled { padding: 14px 24px; }
+  .links { display: none; }
+  .navCta { display: none; }
+  .hamburger { display: flex; }
+  .urgence { padding: 10px 16px; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .urgenceText { font-size: 10px; letter-spacing: 0.18em; }
+  .urgenceNum { font-size: 14px; }
+}
