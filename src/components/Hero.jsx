@@ -1,9 +1,9 @@
 import styles from "../styles/Hero.module.css";
 
 const STATS = [
-  { num: "15+", label: "Années d'expérience" },
-  { num: "98%", label: "Satisfaction client" },
-  { num: "500+", label: "Agents certifiés" },
+  { num: "X+", label: "Années d'expérience" },
+  { num: "X%", label: "Satisfaction client" },
+  { num: "X+", label: "Agents certifiés" },
   { num: "24/7", label: "Astreinte permanente" },
 ];
 
