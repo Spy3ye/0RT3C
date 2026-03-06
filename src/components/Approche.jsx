@@ -1,5 +1,5 @@
 import styles from "../styles/Approche.module.css";
-import shieldWatermark from "../assets/shield-watermark.svg";
+import shieldWatermark from "../assets/logo-shield.png";
 
 const PILIERS = [
   {

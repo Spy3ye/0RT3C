@@ -127,7 +127,7 @@ img, svg { display: block; }
   align-items: center;
   gap: 10px;
   background: transparent;
-  color: var(--gris-clair);
+  color: var(--noir);
   font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 400;

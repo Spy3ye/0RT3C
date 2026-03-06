@@ -1,9 +1,9 @@
 import styles from "../styles/Hero.module.css";
 
 const STATS = [
-  { num: "X+", label: "Années d'expérience" },
+  { num: "30+", label: "Années d'expérience" },
   { num: "X%", label: "Satisfaction client" },
-  { num: "X+", label: "Agents certifiés" },
+  { num: "10+", label: "Agents certifiés" },
   { num: "24/7", label: "Astreinte permanente" },
 ];
 
@@ -16,7 +16,8 @@ export default function Hero() {
       <div className={styles.heroBg} aria-hidden="true" />
       <div className={styles.scanline} aria-hidden="true" />
       <div className={styles.accent} aria-hidden="true" />
-      <div className={styles.bigText} aria-hidden="true">AEG</div>
+      <div className={styles.bigText} aria-hidden="true">ORTEC</div>
+      {/* <div className={styles.background-container} aria-hidden="true" /> */}
 
       <div className={styles.content}>
         <div className={styles.badge}>

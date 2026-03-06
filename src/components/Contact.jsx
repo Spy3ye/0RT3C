@@ -21,7 +21,7 @@ const CONTACTS = [
     ),
   },
   {
-    label: "Couverture",
+    label: "Siège Social",
     val: "9 rue sigismond brissy bron 69500 ,lyon",
     icon: (
       <svg className={styles.cardIcon} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.2">
@@ -52,7 +52,7 @@ export default function Contact() {
           </p>
 
           <div className={`${styles.ctas} reveal reveal-d3`}>
-            <a href="Larsecpro@gmail.com" className="btn-primary">
+            <a href="mailto:Larsecpro@gmail.com" className="btn-primary">
               Demander un devis
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
