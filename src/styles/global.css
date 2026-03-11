@@ -7,21 +7,28 @@
 }
 
 :root {
-  --noir:        #0c0c0c;
-  --noir-2:      #141414;
-  --noir-3:      #1c1c1c;
+  --noir:        #ffffff;
+  --noir-2:      #f5f5f5;
+  --noir-3:      #efefef;
   --rouge:       #c0272d;
   --rouge-sombre:#8b1a1e;
   --rouge-vif:   #e03035;
-  --blanc:       #f5f5f0;
-  --blanc-casse: #e8e8e2;
-  --gris:        #555558;
-  --gris-clair:  #8a8a90;
-  --bordure-r:   rgba(192, 39, 45, 0.25);
-  --bordure-b:   rgba(245, 245, 240, 0.08);
+  --blanc:       #0c0c0c;
+  --blanc-casse: #1a1a1a;
+  --gris:        #999999;
+  --gris-clair:  #444444;
+  --bordure-r:   rgba(192, 39, 45, 0.3);
+  --bordure-b:   rgba(0, 0, 0, 0.1);
   --font-display:'Playfair Display', Georgia, serif;
   --font-heading: 'Oswald', sans-serif;
   --font-body:    'Lato', sans-serif;
+
+  /* Nav-specific dark vars (navbar stays black) */
+  --nav-bg:      #0c0c0c;
+  --nav-bg-scrolled: rgba(12,12,12,0.96);
+  --nav-text:    #f5f5f0;
+  --nav-gris:    #8a8a90;
+  --nav-bordure: rgba(192, 39, 45, 0.25);
 }
 
 html {
@@ -31,8 +38,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--noir);
-  color: var(--blanc);
+  background: #ffffff;
+  color: #0c0c0c;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -127,7 +134,7 @@ img, svg { display: block; }
   align-items: center;
   gap: 10px;
   background: transparent;
-  color: var(--noir);
+  color: #0c0c0c;
   font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 400;
@@ -139,7 +146,7 @@ img, svg { display: block; }
   transition: color 0.3s;
   white-space: nowrap;
 }
-.btn-ghost:hover { color: var(--blanc); }
+.btn-ghost:hover { color: var(--rouge); }
 
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(36px); }
