@@ -49,7 +49,7 @@ export default function Navbar() {
         </ul>
 
         <button className={styles.navCta} onClick={() => scrollTo("contact")}>
-          Devis Gratuit
+          Contactez-nous
         </button>
 
         <button
