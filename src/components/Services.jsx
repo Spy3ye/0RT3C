@@ -1,10 +1,17 @@
 import styles from "../styles/Services.module.css";
+import commImage from "../assets/comm.jpg";
+import alarmImage from "../assets/alarm.jpg";
+import eventImage from "../assets/event.jpg";
+import auditImage from "../assets/audit.jpg";
+import nightImage from "../assets/night-monitoring.jpg";
+import cameraImage from "../assets/install.jpg";
 
 const SERVICES = [
   {
     num: "01",
     title: "Sécurité Commerciale",
     desc: "Protection de vos locaux, centres commerciaux et boutiques. Filtrage d'accès, prévention des vols et gestion des situations conflictuelles avec sang-froid.",
+    image: commImage,
     icon: (
       <svg className={styles.icon} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
         <rect x="8" y="20" width="32" height="22" rx="2" />
@@ -18,6 +25,7 @@ const SERVICES = [
     num: "02",
     title: "Surveillance de Nuit",
     desc: "Rondes nocturnes et gardiennage statique ou mobile. Protection continue de vos actifs industriels, entrepôts et sites sensibles pendant les heures creuses.",
+    image: nightImage,
     icon: (
       <svg className={styles.icon} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
         <path d="M24 6C15 6 8 13 8 22c0 11 16 24 16 24s16-13 16-24c0-9-7-16-16-16z" />
@@ -29,9 +37,10 @@ const SERVICES = [
   },
   {
     num: "03",
-    highlight: true,
+    // highlight: true,
     title: "Sécurité Événementielle",
     desc: "Galas, concerts, conférences et événements d'entreprise. Contrôle d'accès, filtrage VIP, coordination des flux et gestion des foules avec élégance.",
+    image: eventImage,
     icon: (
       <svg className={styles.icon} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
         <path d="M8 20h32l-4 20H12L8 20z" />
@@ -45,6 +54,7 @@ const SERVICES = [
     num: "04",
     title: "Interventions sur Alarme",
     desc: "Levée de doute et intervention rapide sur déclenchement d'alarme. Nos équipes mobiles certifiées interviennent en moins de 20 minutes sur votre zone.",
+    image: alarmImage,
     icon: (
       <svg className={styles.icon} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
         <circle cx="24" cy="22" r="12" />
@@ -57,6 +67,7 @@ const SERVICES = [
     num: "05",
     title: "Installation Caméras",
     desc: "Audit, conception et installation de systèmes de vidéosurveillance haute définition. Solutions IP intelligentes, stockage sécurisé et télésurveillance 24h/24.",
+    image: cameraImage,
     icon: (
       <svg className={styles.icon} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
         <rect x="4" y="14" width="26" height="20" rx="2" />
@@ -71,6 +82,7 @@ const SERVICES = [
     num: "—",
     title: "Audit & Conseil en Sûreté",
     desc: "Diagnostic de vulnérabilités, plan de sécurisation et recommandations personnalisées. Un expert conçoit votre dispositif sur-mesure.",
+    image: auditImage,
     icon: (
       <svg className={styles.icon} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
         <path d="M24 4L44 12v16c0 10-8 19-20 22C12 47 4 41 4 28V12L24 4z" />
@@ -105,7 +117,15 @@ export default function Services() {
           <div
             key={i}
             className={`${styles.card} ${svc.highlight ? styles.cardHighlight : ""} reveal reveal-d${(i % 3) + 1}`}
+            style={svc.image ? { "--card-bg-image": `url(${svc.image})` } : {}}
           >
+            {/* Background image layer */}
+            {svc.image && <div className={styles.cardBg} />}
+
+            {/* Overlay — darker for highlight card, standard dark for others */}
+            <div className={`${styles.cardOverlay} ${svc.highlight ? styles.cardOverlayHighlight : ""}`} />
+
+            {/* Content sits above layers */}
             <span className={styles.num}>{svc.num}</span>
             {svc.icon}
             <h3 className={styles.title}>{svc.title}</h3>

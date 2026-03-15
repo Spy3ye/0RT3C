@@ -1,6 +1,6 @@
 .section {
   padding: 120px 64px;
-  background: #ffffff;
+  background: var(--noir);
   position: relative;
   overflow: hidden;
 }
@@ -23,7 +23,7 @@
 
 .desc {
   font-size: 15px;
-  color: #444444;
+  color: var(--gris-clair);
   line-height: 1.8;
   font-weight: 300;
   margin: 22px 0 56px;
@@ -45,9 +45,9 @@
 }
 
 .card {
-  background: #f5f5f5;
+  background: var(--noir-3);
   padding: 36px 32px;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid transparent;
   transition: border-color 0.3s;
 }
 .card:hover { border-color: var(--bordure-r); }
@@ -64,7 +64,7 @@
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #888888;
+  color: var(--gris);
   display: block;
   margin-bottom: 8px;
 }
@@ -73,12 +73,11 @@
   font-size: 19px;
   font-weight: 400;
   word-break: break-word;
-  color: #0c0c0c;
 }
 
 /* Footer */
 .footer {
-  background: #f0f0f0;
+  background: var(--noir-2);
   padding: 42px 64px;
   border-top: 1px solid rgba(192,39,45,0.2);
   display: flex;
@@ -92,13 +91,13 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #0c0c0c;
+  color: var(--blanc);
 }
 .footerCopy {
   font-family: var(--font-heading);
   font-size: 11px;
   letter-spacing: 0.15em;
-  color: #888888;
+  color: var(--gris);
 }
 .footerBadges { display: flex; gap: 10px; }
 .badge {
@@ -107,7 +106,7 @@
   gap: 8px;
   padding: 8px 14px;
   border: 1px solid rgba(192,39,45,0.25);
-  background: #ffffff;
+  background: var(--noir-3);
 }
 .badgeIcon { width: 14px; height: 14px; color: var(--rouge); }
 .badgeText {
@@ -115,7 +114,7 @@
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #444444;
+  color: var(--gris-clair);
 }
 
 /* Responsive */

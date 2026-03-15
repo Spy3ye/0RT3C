@@ -1,6 +1,6 @@
 .section {
   padding: 120px 64px;
-  background: #f5f5f5;
+  background: rgba(12,12,12,0.85);
   position: relative;
 }
 .section::before {
@@ -11,7 +11,6 @@
   background: linear-gradient(90deg, transparent, var(--rouge), transparent);
   opacity: 0.5;
 }
-
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -22,17 +21,16 @@
 .intro {
   font-size: 14px;
   line-height: 1.85;
-  color: #444444;
+  color: #ffffff;
   font-weight: 300;
 }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
 }
 
-/* Card */
+/* ─── Card ──────────────────────────────────────────────────────────────── */
 .card {
   background: #ffffff;
   padding: 44px 36px;
@@ -41,7 +39,67 @@
   border: 1px solid rgba(0,0,0,0.08);
   transition: border-color 0.35s, transform 0.35s;
   cursor: default;
+
+  /* Ensure text sits above bg/overlay layers */
+  isolation: isolate;
 }
+
+/* ─── Background image layer ────────────────────────────────────────────── */
+.cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--card-bg-image);
+  background-size: cover;
+  background-position: center;
+  /* Subtle zoom-in on hover via parent hover — see below */
+  transition: transform 0.55s ease, opacity 0.35s ease;
+  opacity: 2;           /* hidden at rest, revealed on hover */
+  transform: scale(1.05);
+}
+
+.card:hover .cardBg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── Dark overlay (sits above bg, below content) ───────────────────────── */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(12, 12, 12, 0.72) 0%,
+    rgba(12, 12, 12, 0.55) 60%,
+    rgba(12, 12, 12, 0.40) 100%
+  );
+  opacity: 3;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+}
+
+/* Highlighted card keeps its red overlay visible at all times */
+/* .cardOverlayHighlight {
+  background: linear-gradient(
+    160deg,
+    rgba(192, 39, 45, 0.82) 0%,
+    rgba(192, 39, 45, 0.65) 100%
+  );
+  opacity: 1 !important;
+} */
+
+/* All direct children except bg/overlay sit above them */
+.card > *:not(.cardBg):not(.cardOverlay) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Left accent bar ───────────────────────────────────────────────────── */
 .card::before {
   content: '';
   position: absolute;
@@ -51,7 +109,10 @@
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.35s ease;
+  z-index: 3;
 }
+
+/* ─── Red corner glow (original ::after) ───────────────────────────────── */
 .card::after {
   content: '';
   position: absolute;
@@ -59,12 +120,21 @@
   background: linear-gradient(135deg, rgba(192,39,45,0.07) 0%, transparent 50%);
   opacity: 0;
   transition: opacity 0.35s;
+  z-index: 1;
+  pointer-events: none;
 }
+
 .card:hover { border-color: var(--bordure-r); transform: translateY(-4px); }
 .card:hover::before { transform: scaleY(1); }
 .card:hover::after { opacity: 1; }
 
-/* Highlighted card */
+/* When a bg image is showing, text needs to stay white & readable */
+.card:hover .num   { color: rgba(255,255,255,0.55); }
+.card:hover .title { color: #ffffff; }
+.card:hover .desc  { color: rgba(255,255,255,0.80); }
+.card:hover .icon  { color: #ffffff; }
+
+/* ─── Highlighted card ──────────────────────────────────────────────────── */
 .cardHighlight {
   background: var(--rouge) !important;
   border-color: var(--rouge) !important;
@@ -78,6 +148,12 @@
 .cardHighlight .more  { color: #fff; opacity: 1; transform: none; }
 .cardHighlight .icon  { color: #fff; }
 
+/* Highlighted + image: bg fades in on hover (overlay already red) */
+.cardHighlight:hover .cardBg {
+  opacity: 0.45;
+}
+
+/* ─── Typography ────────────────────────────────────────────────────────── */
 .num {
   font-family: var(--font-heading);
   font-size: 11px;
@@ -86,12 +162,14 @@
   color: var(--rouge-sombre);
   margin-bottom: 28px;
   display: block;
+  transition: color 0.3s;
 }
 .icon {
   width: 48px;
   height: 48px;
   margin-bottom: 24px;
   color: var(--rouge);
+  transition: color 0.3s;
 }
 .title {
   font-family: var(--font-heading);
@@ -100,13 +178,15 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 14px;
-  color: #0c0c0c;
+  color: #ffffff;
+  transition: color 0.3s;
 }
 .desc {
   font-size: 13px;
   line-height: 1.75;
-  color: #444444;
+  color: #ffffff;
   font-weight: 300;
+  transition: color 0.3s;
 }
 .more {
   display: inline-flex;
@@ -121,11 +201,11 @@
   color: var(--rouge);
   opacity: 0;
   transform: translateX(-8px);
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, color 0.3s;
 }
-.card:hover .more { opacity: 1; transform: translateX(0); }
+.card:hover .more { opacity: 1; transform: translateX(0); color: #fff; }
 
-/* Responsive */
+/* ─── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
 }

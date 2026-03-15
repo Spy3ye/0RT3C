@@ -54,12 +54,11 @@
   align-items: center;
   transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s;
   border-bottom: 1px solid transparent;
-  background: #0c0c0c;
 }
 .nav.scrolled {
   padding: 16px 64px;
   background: rgba(12,12,12,0.96);
-  border-bottom-color: rgba(192,39,45,0.25);
+  border-bottom-color: var(--bordure-r);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -82,7 +81,7 @@
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 0.15em;
-  color: #f5f5f0;
+  color: var(--blanc);
   text-transform: uppercase;
 }
 .logoSub {
@@ -106,7 +105,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8a8a90;
+  color: var(--gris-clair);
   transition: color 0.3s;
   position: relative;
 }
@@ -118,7 +117,7 @@
   background: var(--rouge);
   transition: width 0.3s;
 }
-.links a:hover { color: #f5f5f0; }
+.links a:hover { color: var(--blanc); }
 .links a:hover::after { width: 100%; }
 
 /* CTA */
@@ -155,7 +154,7 @@
   display: block;
   width: 26px;
   height: 2px;
-  background: #f5f5f0;
+  background: var(--blanc);
   transition: all 0.3s;
 }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -182,7 +181,7 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #f5f5f0;
+  color: var(--blanc);
   transition: color 0.3s;
 }
 .mobileMenu a:hover { color: var(--rouge); }
