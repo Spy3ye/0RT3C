@@ -5,6 +5,8 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Approche from "./components/Approche";
 import Contact from "./components/Contact";
+import Zone from "./components/Zone";
+import Valeur from "./components/Valeur";
 
 export default function App() {
   useReveal();
@@ -16,6 +18,8 @@ export default function App() {
         <Hero />
         <Services />
         <Approche />
+        <Zone />
+        <Valeur />
         <Contact />
       </main>
     </>

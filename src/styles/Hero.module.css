@@ -121,8 +121,8 @@
 
 .desc {
   margin: 28px 0 48px;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.8;
   color: var(--noir);
   max-width: 520px;

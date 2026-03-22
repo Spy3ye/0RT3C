@@ -34,9 +34,7 @@ export default function Hero() {
         </h1>
 
         <p className={styles.desc}>
-          ORTEC Sécurité déploie des solutions de protection humaine premium,
-          orientées prévention — pour les entreprises, les événements et les
-          particuliers les plus exigeants.
+          ORTEC Sécurité met en œuvre des solutions d'excellence en protection humaine, résolument orientées vers la prévention, pour les entreprises, les événements et une clientèle privée exigeante.
         </p>
 
         <div className={styles.actions}>
