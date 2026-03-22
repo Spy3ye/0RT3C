@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <>
       {/* Urgence Banner */}
-      <div className={styles.urgence}>
+      <div className={`${styles.urgence} ${scrolled ? styles.urgenceHidden : ""}`}>
         <span className={styles.urgenceDot} />
         <span className={styles.urgenceText}>Astreinte & Intervention 24h/24 — 7j/7</span>
         {/* <span className={styles.urgenceNum}>0650477911</span> */}
