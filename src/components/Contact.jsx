@@ -3,7 +3,7 @@ import styles from "../styles/Contact.module.css";
 const CONTACTS = [
   {
     label: "Email",
-    val: "Larsecpro@gmail.com",
+    val: "ortec.sécurité@gmail.com",
     icon: (
       <svg className={styles.cardIcon} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.2">
         <path d="M4 6h24l-2 18H6L4 6z" />
