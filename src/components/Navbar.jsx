@@ -45,6 +45,8 @@ export default function Navbar() {
         <ul className={styles.links}>
           <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo("services"); }}>Services</a></li>
           <li><a href="#approche" onClick={(e) => { e.preventDefault(); scrollTo("approche"); }}>Approche</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo("services"); }}>Valeur</a></li>
+          <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollTo("services"); }}>Zone</a></li>
           <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}>Contact</a></li>
         </ul>
 
